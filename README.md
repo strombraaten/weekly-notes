@@ -1,6 +1,6 @@
 # weekly-notes
-
-https://github.com/user-attachments/assets/5c895c35-dac9-4fa9-81e1-a468075089a8
+## How it works
+https://github.com/user-attachments/assets/23bfe3d8-dd1d-434f-b4f7-124ba070002e
 
 **English** · [Norsk](#norsk)
 
