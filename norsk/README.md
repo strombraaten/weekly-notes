@@ -124,8 +124,7 @@ Undermapper uten egen mappemal arver malen fra mappen over. Har `logg/` undermap
 
 ## FAQ
 
-- **Startsiden åpner seg ikke:** Trykk **Alt + W** (Option + W på Mac). Eller trykk **Cmd + P** (Mac) og begynn å skrive "homepage", så kan du åpne den derfra
-- Hvis du en gang havner på en tom fane i stedet, klikker du på **hus-ikonet** i venstre marg for å åpne startsiden. Eller trykk .
+- **Startsiden åpner seg ikke:** Trykk **Alt + W** for å gå rett til startsida. Eventuelt kan du åpne opp command bar med **Cmd + P** og begynn å skrive "homepage", så kan du åpne den derfra.
 - **«Open weekly note» åpner forrige uke, eller uka starter på søndag:** Se [Språk og ukestart](#språk-og-ukestart).
 - **Et dagsnotat blir lagd, men er tomt:** sjekk at *Trigger Templater on new file creation* er på, og at regex-regelen peker på `templates/dag.md`. Er filen allerede laget tom, sletter du den og lager den på nytt.
 - **Hva er de rare verdiene som `{{monday:YYYY-MM-DD}}` eller `<% … %>`:** det er selve malen du ser på. De fylles ut dynamisk når du oppretter en ny fil.
