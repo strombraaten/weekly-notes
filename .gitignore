@@ -9,8 +9,13 @@
 .DS_Store
 
 # Notater laget under testing / notes created while testing
-english/journal/
-norsk/logg/
+english/journal/*
+norsk/logg/*
+!english/journal/weeks/
+!norsk/logg/uker/
+english/journal/weeks/*
+norsk/logg/uker/*
+!**/.gitkeep
 
 # Byggede ZIP-filer / built zip files
 dist/
