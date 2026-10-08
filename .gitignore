@@ -1,0 +1,16 @@
+# Lokale Obsidian-filer / local Obsidian files
+**/.obsidian/workspace.json
+**/.obsidian/workspace-mobile.json
+**/.obsidian/appearance.json
+**/.obsidian/graph.json
+**/.obsidian/bookmarks.json
+**/.obsidian/sync.json
+**/.trash/
+.DS_Store
+
+# Notater laget under testing / notes created while testing
+english/journal/
+norsk/logg/
+
+# Byggede ZIP-filer / built zip files
+dist/

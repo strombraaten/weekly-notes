@@ -1,0 +1,10 @@
+{
+  "showGettingStartedBanner": false,
+  "hasMigratedDailyNoteSettings": true,
+  "hasMigratedWeeklyNoteSettings": true,
+  "daily": { "enabled": true, "format": "YYYY-MM-DD", "folder": "logg", "template": "" },
+  "weekly": { "enabled": true, "format": "GGGG-[uke-]WW", "folder": "logg/uker", "template": "Templates/uke" },
+  "monthly": { "enabled": false, "format": "", "template": "", "folder": "" },
+  "quarterly": { "enabled": false, "format": "", "template": "", "folder": "" },
+  "yearly": { "enabled": false, "format": "", "template": "", "folder": "" }
+}
