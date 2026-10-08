@@ -124,7 +124,7 @@ Subfolders without their own folder template inherit the template from the folde
 
 ## FAQ
 
-- **The homepage doesn't open:** Press **Alt + W** (Option + W on Mac). Or press **Cmd + P** (Mac) or **Ctrl + P** (Windows) and start typing "homepage" to open it from there. Or, if you land on an empty tab, click the **house icon** in the left sidebar to open the homepage.
+- **The homepage doesn't open:** Press **Alt + W** to go straight to the homepage. Alternatively, open the command bar with **Cmd + P** and start typing "homepage" to open it from there.
 - **"Open weekly note" opens last week, or the week starts on Sunday:** See [Language and week start](#language-and-week-start).
 - **A daily note is created but empty:** check that *Trigger Templater on new file creation* is on and that the regex rule points to `templates/daily.md`. If the file was already created empty, delete it and create it again.
 - **What are the odd values like `{{monday:YYYY-MM-DD}}` or `<% … %>`:** you're looking at the template itself. The placeholders are filled in when you create a new file from it.
