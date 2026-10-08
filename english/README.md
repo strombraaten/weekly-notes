@@ -93,6 +93,41 @@ The rule means only files named exactly as a date, such as `2026-10-08.md`, get 
 
 - Turn off the core plugin **Daily notes** (*Settings → Core plugins*), so only Periodic Notes manages daily notes.
 
+### Slightly more advanced: Already using folder templates in Templater?
+
+Templater can only use one mode at a time: either *Folder templates* or *File regex templates*. If you already use folder templates, keep them. Add the daily template as folder templates instead of the regex rule above.
+
+When you click a day in the weekly note, Obsidian creates the file wherever new notes go (*Settings → Files and links → Default location for new notes*). So the daily template has to apply to that folder too:
+
+| Folder | Template | Used when |
+|---|---|---|
+| `journal` | `templates/daily.md` | *Open daily note* |
+| Your folder for new notes, e.g. `Inbox` (or `/` if new notes go to the vault root) | `templates/inbox.md` (see below) | Clicking a day in the weekly note |
+
+Create `templates/inbox.md`. It sends notes named as a date to the daily template, which moves them to `journal/`. Other new notes are left alone:
+
+```
+<%*
+if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
+  tR += await tp.file.include("[[daily]]");
+}
+-%>
+```
+
+If your folder for new notes already has a folder template, add it as an "else" so it's still used for regular notes:
+
+```
+<%*
+if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
+  tR += await tp.file.include("[[daily]]");
+} else {
+  tR += await tp.file.include("[[your usual template]]");
+}
+-%>
+```
+
+Subfolders without their own folder template inherit the template from the folder above. If `journal/` has subfolders where you create other notes, give them their own folder template.
+
 ## Troubleshooting
 
 - **"Open weekly note" opens last week, or Sunday is wrong:** your week starts on Sunday. See [Language and week start](#language-and-week-start).

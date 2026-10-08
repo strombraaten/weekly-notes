@@ -93,6 +93,41 @@ Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-0
 
 - Slå av kjerne-pluginen **Daily notes** (*Settings → Core plugins*), slik at det bare er Periodic Notes som styrer dagnotatene.
 
+### Litt mer avansert: Bruker du allerede mappemaler i Templater?
+
+Templater kan bare bruke én modus om gangen, enten *Folder templates* eller *File regex templates*. Bruker du mappemaler fra før, beholder du dem. Da legger du til dagmalen som mappemaler i stedet for regex-regelen over.
+
+Når du klikker på en dag i ukenotatet, lager Obsidian filen der nye notater havner (*Settings → Files and links → Default location for new notes*). Dagmalen må derfor også gjelde den mappen:
+
+| Mappe | Mal | Når den brukes |
+|---|---|---|
+| `logg` | `templates/dag.md` | *Open daily note* |
+| Mappen for nye notater, f.eks. `Innboks` (eller `/` hvis nye notater havner i roten) | `templates/innboks.md` (se under) | Klikk på en dag i ukenotatet |
+
+Lag `templates/innboks.md`. Den sender notater som heter en dato, til dagmalen, som flytter dem til `logg/`. Andre nye notater lar den være i fred:
+
+```
+<%*
+if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
+  tR += await tp.file.include("[[dag]]");
+}
+-%>
+```
+
+Har mappen for nye notater allerede en mappemal, legger du den inn som et «ellers», så den fortsatt brukes for vanlige notater:
+
+```
+<%*
+if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
+  tR += await tp.file.include("[[dag]]");
+} else {
+  tR += await tp.file.include("[[din vanlige mal]]");
+}
+-%>
+```
+
+Undermapper uten egen mappemal arver malen fra mappen over. Har `logg/` undermapper der du lager andre notater, bør de få sin egen mappemal.
+
 ## Hvis noe ikke virker
 
 - **«Open weekly note» åpner forrige uke, eller søndagen er feil:** uka starter på søndag. Se [Språk og ukestart](#språk-og-ukestart).
