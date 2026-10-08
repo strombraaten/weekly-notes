@@ -1,73 +1,47 @@
 # Ukenotater og dagnotater i Obsidian
 
-Et enkelt oppsett for dagnotater og ukenotater:
-
-- **Ukenotatet** viser alle dagnotatene i uka, mandag til søndag, og en tabell over notatene du har jobbet med den uka.
-- **Dagnotatet** lenker til uka, til i går og til i morgen.
-- Klikker du på en dag som ikke finnes ennå i ukenotatet, lages dagnotatet med riktig mal og havner i riktig mappe.
-
-- **Startsiden** åpner ukenotatet for denne uka hver gang du starter Obsidian, så du havner rett i uka som er nå.
-
-Oppsettet bruker tre plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes), [Templater](https://github.com/SilentVoid13/Templater) og [Homepage](https://github.com/mirnovov/obsidian-homepage). Alle tre ligger allerede i dette vaultet.
+Få oversikt over uka du er i med ukesvisningen. Ta en dag om gangen med de daglige notatene. Og gjør det lett tilgjengelig med at du alltid kommer tilbake til uka som en startside.
 
 ## Kom i gang
 
 ### 1. Åpne i Obsidian
-1. Pakk ut ZIP-filen og flytt mappen til et fast sted. Første gang du bruker Obsidian: velg **Open folder as vault** og pek på mappen. Har du allerede et vault: trykk på navnet til vaultet nede til venstre, velg **Manage vaults…** og så **Open folder as vault**.
+1. Pakk ut ZIP-fila, og flytt mappa dit du vil ha den. Første gang du bruker Obsidian: velg **Open folder as vault** og åpne mappa. Hvis du har et vault åpent fra før kan du åpne opp Command bar med cmd+p, og søke opp **Manage vaults…**, for så å velge **Open folder as vault**.
+2. Velg English (GB) ellers norsk som språk, hvis du vil at uka skal starte på en mandag. Dette kan du alltids endre senere. se [Språk og ukestart](#språk-og-ukestart) hvis du vil forstå det bedre.
 2. Trykk **Trust author and enable plugins** når Obsidian spør.
 
-### 2. To innstillinger du må sette selv
-Disse lagres på maskinen din og ikke i vaultet, så de kan ikke sendes med:
+### 2. Én innstilling du må sette selv
 
-1. **Språk:** se [Språk og ukestart](#språk-og-ukestart) under. Bruker du norsk, trenger du ikke gjøre noe.
-2. **Templater:** gå til *Settings → Templater* og slå på **Trigger Templater on new file creation**. Templater spør om du stoler på vaultet. Svar ja.
+Gå til *Settings → Templater* og slå på **Trigger Templater on new file creation**. Templater spør om du stoler på vaultet. Svar ja.
 
-### 3. Prøv det
-Trykk **Cmd + P** (Mac) eller **Ctrl + P** (Windows) og kjør **Periodic Notes: Open weekly note**. Ukenotatet for denne uka lages i `logg/uker/`. Klikk på dagen i dag for å lage dagnotatet.
+### 3. For en sømløs start er det best å starte Obsidian på nytt
+Avslutt Obsidian helt (**Cmd + Q** på Mac) og åpne vaultet igjen. Da åpnes ukesvisningen din som en startside fra nå av.
+Men det krever en omstart for at det skal fungere.
+
+Du kommer alltid tilbake til ukesvisningen med **Alt + W** (Option + W på Mac).
+
+### 4. Voila! Oversikten er klar
+
+For å starte et daglig notat trykker du på `"year-month-date" is not created yet. Click to create.`
 
 ## Språk og ukestart
 
 Oppsettet forutsetter at uka starter på **mandag**. Det styres av språket i Obsidian (*Settings → General → Language*):
 
-- **Norsk:** du trenger ikke gjøre noe.
-- **Engelsk:** velg **English (GB)**, ikke *English*. Vanlig *English* følger amerikansk standard, der uka starter på søndag, og da havner du i feil ukenotat. Med *English (GB)* er grensesnittet fortsatt engelsk, men uka starter på mandag.
+- **Velg norsk** dersom du vil ha all tekst i grensesnittet på norsk.
+- **Velg "English (GB)"**, ikke *English*, dersom du vil ha grensesnittet på engelsk. Vanlig *English* følger amerikansk standard, der uka starter på søndag, og da havner du i feil ukenotat. Med *English (GB)* er grensesnittet fortsatt engelsk, men uka starter på mandag.
 
-Start Obsidian på nytt etter at du har byttet språk.
+> Hvis du på død og liv vil beholde vanlig *English* kan du installere [Calendar](https://github.com/liamcain/obsidian-calendar-plugin)-pluginen og sette *Start week on* til **Monday**.
 
-> Vil du beholde vanlig *English*? Da kan du installere pluginen [Calendar](https://github.com/liamcain/obsidian-calendar-plugin) og sette *Start week on* til **Monday**.
+## Vil du bruke oppsettet i et vault du har fra før?
 
-## Hvordan det henger sammen
-
-```
-templates/
-  uke.md           ← ukemal (Periodic Notes fyller den ut)
-  dag.md           ← dagmal (Templater fyller den ut)
-logg/
-  2026-10-08.md    ← dagnotater
-  uker/
-    2026-uke-41.md ← ukenotater
-```
-
-| Hva | Hvem lager filen | Hvem fyller inn innholdet |
-|---|---|---|
-| Ukenotat | Periodic Notes | Periodic Notes, med `uke.md` |
-| Dagnotat via *Open daily note* | Periodic Notes (tom fil) | Templater, med `dag.md` |
-| Dagnotat via klikk i ukenotatet | Obsidian (tom fil) | Templater, med `dag.md` |
-
-- **Ukemalen** bruker bare plassholdere som Periodic Notes forstår selv, som `{{monday:YYYY-MM-DD}}`. Den trenger ikke Templater.
-- **Dagmalen** bruker Templater, fordi Periodic Notes ikke er med når du klikker på en lenke. Templater leser datoen fra filnavnet, så notatet blir riktig også for andre dager enn i dag.
-- **Dagnotatet havner alltid i riktig mappe.** Klikker du på en lenke, legger Obsidian filen der du har valgt at nye notater skal havne. Dagmalen flytter den til mappen for dagnotater som er valgt i Periodic Notes. Vil du bruke en annen mappe, endrer du den bare i Periodic Notes.
-
-## Bruke oppsettet i et vault du har fra før
-
-1. Kopier mappen `templates/` (eller filene `uke.md` og `dag.md`) inn i vaultet ditt.
+1. Kopier mappen `templates/` (eller kun disse to filene — `uke.md` og `dag.md`) inn i vaultet ditt.
 2. Installer **Periodic Notes**, **Templater** og **Homepage** under *Settings → Community plugins → Browse*.
-3. Fyll inn innstillingene under. Ikke kopier `.obsidian`-mappen, for da overskriver du innstillingene du har fra før.
+3. Fyll inn innstillingene under.
 4. Les [Språk og ukestart](#språk-og-ukestart).
 
-Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den og bruke de stiene i stedet. Husk også å endre `"templates"` i base-blokken nederst i `uke.md`, slik at malene ikke dukker opp i tabellen.
+Hvis du bruker Templater fra før kan du legge `uke.md` og `dag.md` der du har dine andre maler. Da må du riktignok endre på stien (altså hvor fila ligger) nederst i `uke.md` (i base-blokken).
 
-### Innstillinger
+### Anbefalte innstillinger
 
 **Periodic Notes**
 
@@ -91,27 +65,8 @@ Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den
 
 Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-08.md`, får dagmalen. Andre nye notater påvirkes ikke.
 
-**Homepage**
-
-| Innstilling | Verdi |
-|---|---|
-| Homepage → Type | *Weekly Note* (bruker ukenotatet fra Periodic Notes) |
-| Open on startup | på |
-| Open when empty | på |
-| Use when opening normally | av |
-| Separate mobile homepage | av |
-| Opening method | Replace all open notes |
-| Manual opening method | Keep open notes |
-| Pin | på |
-| Hide release notes | på |
-| Auto-create | av |
-
-**Obsidian**
-
-- Slå av kjerne-pluginen **Daily notes** (*Settings → Core plugins*), slik at det bare er Periodic Notes som styrer dagnotatene.
-
 <details>
-<summary><strong>Litt mer avansert: Bruker du allerede mappemaler i Templater?</strong></summary>
+<summary><strong>Litt mer avansert: Bruker du allerede maler for ulike mapper i Templater?</strong></summary>
 
 Templater kan bare bruke én modus om gangen, enten *Folder templates* eller *File regex templates*. Bruker du mappemaler fra før, beholder du dem. Da legger du til dagmalen som mappemaler i stedet for regex-regelen over.
 
@@ -148,16 +103,38 @@ Undermapper uten egen mappemal arver malen fra mappen over. Har `logg/` undermap
 
 </details>
 
-## Hvis noe ikke virker
+**Homepage**
 
-- **«Open weekly note» åpner forrige uke, eller søndagen er feil:** uka starter på søndag. Se [Språk og ukestart](#språk-og-ukestart).
-- **Et dagnotat blir lagd, men er tomt:** sjekk at *Trigger Templater on new file creation* er på, og at regex-regelen peker på `templates/dag.md`. Er filen allerede laget tom, sletter du den og lager den på nytt.
-- **«… is not created yet. Click to create» i ukenotatet:** det er normalt for dager som ikke har et notat ennå. Klikk for å lage det.
-- **Rare verdier som `{{monday:YYYY-MM-DD}}` eller `<% … %>`:** du ser på selve malen. Plassholderne fylles ut først når et notat lages fra malen.
+| Innstilling | Verdi |
+|---|---|
+| Homepage → Type | *Weekly Note* (bruker ukenotatet fra Periodic Notes) |
+| Open on startup | på |
+| Open when empty | på |
+| Use when opening normally | av |
+| Separate mobile homepage | av |
+| Opening method | Replace all open notes |
+| Manual opening method | Keep open notes |
+| Pin | på |
+| Hide release notes | på |
+| Auto-create | av |
+
+**Obsidian**
+
+- Slå av kjerne-pluginen **Daily notes** (*Settings → Core plugins*), slik at det bare er Periodic Notes som styrer dagnotatene.
+
+## FAQ
+
+- **Startsiden åpner seg ikke:** Trykk **Alt + W** (Option + W på Mac). Eller trykk **Cmd + P** (Mac) og begynn å skrive "homepage", så kan du åpne den derfra
+- Hvis du en gang havner på en tom fane i stedet, klikker du på **hus-ikonet** i venstre marg for å åpne startsiden. Eller trykk .
+- **«Open weekly note» åpner forrige uke, eller uka starter på søndag:** Se [Språk og ukestart](#språk-og-ukestart).
+- **Et dagsnotat blir lagd, men er tomt:** sjekk at *Trigger Templater on new file creation* er på, og at regex-regelen peker på `templates/dag.md`. Er filen allerede laget tom, sletter du den og lager den på nytt.
+- **Hva er de rare verdiene som `{{monday:YYYY-MM-DD}}` eller `<% … %>`:** det er selve malen du ser på. De fylles ut dynamisk når du oppretter en ny fil.
 
 ## Plugins og lisenser
 
-Vaultet inneholder uendrede kopier av disse pluginene, slik at oppsettet virker med en gang. Du kan oppdatere dem som vanlig under *Settings → Community plugins*.
+Vaultet baserer seg på tre plugins for å få dette til å funke, og inneholder uendrede kopier av disse pluginene, slik at det bare skal virke automagisk. 
+
+I ny og ne må de sikkert oppdateres, og det gjør du under *Settings → Community plugins*.
 
 | Plugin | Versjon | Lisens | Kildekode |
 |---|---|---|---|

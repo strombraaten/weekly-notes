@@ -1,73 +1,47 @@
 # Weekly and daily notes in Obsidian
 
-A simple setup for daily and weekly notes:
-
-- **The weekly note** shows every daily note in the week, Monday to Sunday, plus a table of the notes you worked on that week.
-- **The daily note** links to its week, to yesterday and to tomorrow.
-- Click a day in the weekly note that doesn't exist yet, and the daily note is created with the right template in the right folder.
-
-- **The homepage** opens this week's note every time you start Obsidian, so you land straight in the current week.
-
-The setup uses three plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes), [Templater](https://github.com/SilentVoid13/Templater) and [Homepage](https://github.com/mirnovov/obsidian-homepage). All three are already included in this vault.
+Get an overview of the week you're in with the weekly view. Take one day at a time with the daily notes. And make it easy to get back, because the week is always your start page.
 
 ## Getting started
 
 ### 1. Open in Obsidian
-1. Unzip the file and move the folder somewhere permanent. If this is your first time using Obsidian, choose **Open folder as vault** and select the folder. If you already have a vault, click the vault name in the bottom left, choose **Manage vaults…** and then **Open folder as vault**.
+1. Unzip the file and move the folder wherever you want to keep it. If this is your first time using Obsidian, choose **Open folder as vault** and open the folder. If you already have a vault open, press Cmd + P (Mac) or Ctrl + P (Windows) to open the command bar, search for **Manage vaults…** and then choose **Open folder as vault**.
 2. Click **Trust author and enable plugins** when Obsidian asks.
+3. Choose English (GB), or Norwegian, as the language if you want weeks to start on Monday. You can always change this later. See [Language and week start](#language-and-week-start) if you want to understand it better.
 
-### 2. Two settings you have to set yourself
-These are stored on your computer, not in the vault, so they can't be included:
+### 2. One setting you have to set yourself
 
-1. **Language:** see [Language and week start](#language-and-week-start) below.
-2. **Templater:** go to *Settings → Templater* and turn on **Trigger Templater on new file creation**. Templater asks whether you trust the vault. Answer yes.
+Go to *Settings → Templater* and turn on **Trigger Templater on new file creation**. Templater asks whether you trust the vault. Answer yes.
 
-### 3. Try it
-Press **Cmd + P** (Mac) or **Ctrl + P** (Windows) and run **Periodic Notes: Open weekly note**. This week's note is created in `journal/weeks/`. Click today to create the daily note.
+### 3. For a smooth start, restart Obsidian
+Quit Obsidian completely (**Cmd + Q** on Mac) and open the vault again. From now on, your weekly view opens as a start page.
+It needs a restart to work.
+
+You can always get back to the weekly view with **Alt + W** (Option + W on Mac).
+
+### 4. Voilà! Your overview is ready
+
+To start a daily note, click `"year-month-date" is not created yet. Click to create.`
 
 ## Language and week start
 
-The setup assumes that weeks start on **Monday** and uses ISO week numbers. The week start comes from Obsidian's language (*Settings → General → Language*):
+The setup assumes that weeks start on **Monday**. This comes from Obsidian's language (*Settings → General → Language*):
 
-- **English:** choose **English (GB)**, not *English*. Plain *English* follows the US convention where weeks start on Sunday, and then you end up in the wrong weekly note. *English (GB)* keeps the interface in English but starts the week on Monday.
-- **Most other European languages**, such as Norwegian, German or French, already start the week on Monday. You don't need to do anything.
+- **Choose Norwegian** if you want all of the interface in Norwegian.
+- **Choose "English (GB)"**, not *English*, if you want the interface in English. Plain *English* follows the US convention where weeks start on Sunday, and then you end up in the wrong weekly note. *English (GB)* keeps the interface in English but starts the week on Monday.
 
-Restart Obsidian after changing the language.
+> If you really want to keep plain *English*, install the [Calendar](https://github.com/liamcain/obsidian-calendar-plugin) plugin and set *Start week on* to **Monday**.
 
-> Want to keep plain *English*? Install the [Calendar](https://github.com/liamcain/obsidian-calendar-plugin) plugin and set *Start week on* to **Monday**.
+## Want to use the setup in an existing vault?
 
-## How it fits together
-
-```
-templates/
-  weekly.md         ← weekly template (filled in by Periodic Notes)
-  daily.md          ← daily template (filled in by Templater)
-journal/
-  2026-10-08.md     ← daily notes
-  weeks/
-    2026-week-41.md ← weekly notes
-```
-
-| What | Who creates the file | Who fills in the content |
-|---|---|---|
-| Weekly note | Periodic Notes | Periodic Notes, using `weekly.md` |
-| Daily note via *Open daily note* | Periodic Notes (empty file) | Templater, using `daily.md` |
-| Daily note via a click in the weekly note | Obsidian (empty file) | Templater, using `daily.md` |
-
-- **The weekly template** only uses placeholders that Periodic Notes understands on its own, such as `{{monday:YYYY-MM-DD}}`. It doesn't need Templater.
-- **The daily template** uses Templater, because Periodic Notes isn't involved when you click a link. Templater reads the date from the file name, so the note is correct for any day, not just today.
-- **Daily notes always end up in the right folder.** When you click a link, Obsidian puts the file wherever you've chosen for new notes. The daily template then moves it to the daily notes folder set in Periodic Notes. To use a different folder, you only change it in Periodic Notes.
-
-## Using the setup in an existing vault
-
-1. Copy the `templates/` folder (or just `weekly.md` and `daily.md`) into your vault.
+1. Copy the `templates/` folder (or just these two files, `weekly.md` and `daily.md`) into your vault.
 2. Install **Periodic Notes**, **Templater** and **Homepage** under *Settings → Community plugins → Browse*.
-3. Fill in the settings below. Don't copy the `.obsidian` folder, as that would overwrite your existing settings.
+3. Fill in the settings below.
 4. Read [Language and week start](#language-and-week-start).
 
-If you already have a template folder in Templater, you can put `weekly.md` and `daily.md` there and use those paths instead. Remember to also change `"templates"` in the base block at the bottom of `weekly.md`, so the templates don't show up in the table.
+If you already use Templater, you can put `weekly.md` and `daily.md` where you keep your other templates. You then have to change the path (that is, where the file is located) at the bottom of `weekly.md`, in the base block.
 
-### Settings
+### Recommended settings
 
 **Periodic Notes**
 
@@ -91,29 +65,10 @@ If you already have a template folder in Templater, you can put `weekly.md` and 
 
 The rule means only files named exactly as a date, such as `2026-10-08.md`, get the daily template. Other new notes are not affected.
 
-**Homepage**
-
-| Setting | Value |
-|---|---|
-| Homepage → Type | *Weekly Note* (uses the weekly note from Periodic Notes) |
-| Open on startup | on |
-| Open when empty | on |
-| Use when opening normally | off |
-| Separate mobile homepage | off |
-| Opening method | Replace all open notes |
-| Manual opening method | Keep open notes |
-| Pin | on |
-| Hide release notes | on |
-| Auto-create | off |
-
-**Obsidian**
-
-- Turn off the core plugin **Daily notes** (*Settings → Core plugins*), so only Periodic Notes manages daily notes.
-
 <details>
-<summary><strong>Slightly more advanced: Already using folder templates in Templater?</strong></summary>
+<summary><strong>Slightly more advanced: Already using templates for different folders in Templater?</strong></summary>
 
-Templater can only use one mode at a time: either *Folder templates* or *File regex templates*. If you already use folder templates, keep them. Add the daily template as folder templates instead of the regex rule above.
+Templater can only use one mode at a time: either *Folder templates* or *File regex templates*. If you already use folder templates, keep them. Add the daily template as a folder template instead of the regex rule above.
 
 When you click a day in the weekly note, Obsidian creates the file wherever new notes go (*Settings → Files and links → Default location for new notes*). So the daily template has to apply to that folder too:
 
@@ -148,16 +103,37 @@ Subfolders without their own folder template inherit the template from the folde
 
 </details>
 
-## Troubleshooting
+**Homepage**
 
-- **"Open weekly note" opens last week, or Sunday is wrong:** your week starts on Sunday. See [Language and week start](#language-and-week-start).
+| Setting | Value |
+|---|---|
+| Homepage → Type | *Weekly Note* (uses the weekly note from Periodic Notes) |
+| Open on startup | on |
+| Open when empty | on |
+| Use when opening normally | off |
+| Separate mobile homepage | off |
+| Opening method | Replace all open notes |
+| Manual opening method | Keep open notes |
+| Pin | on |
+| Hide release notes | on |
+| Auto-create | off |
+
+**Obsidian**
+
+- Turn off the core plugin **Daily notes** (*Settings → Core plugins*), so only Periodic Notes manages daily notes.
+
+## FAQ
+
+- **The homepage doesn't open:** Press **Alt + W** (Option + W on Mac). Or press **Cmd + P** (Mac) or **Ctrl + P** (Windows) and start typing "homepage" to open it from there. Or, if you land on an empty tab, click the **house icon** in the left sidebar to open the homepage.
+- **"Open weekly note" opens last week, or the week starts on Sunday:** See [Language and week start](#language-and-week-start).
 - **A daily note is created but empty:** check that *Trigger Templater on new file creation* is on and that the regex rule points to `templates/daily.md`. If the file was already created empty, delete it and create it again.
-- **"… is not created yet. Click to create" in the weekly note:** that's normal for days that don't have a note yet. Click to create it.
-- **Odd values like `{{monday:YYYY-MM-DD}}` or `<% … %>`:** you're looking at the template itself. The placeholders are only filled in when a note is created from it.
+- **What are the odd values like `{{monday:YYYY-MM-DD}}` or `<% … %>`:** you're looking at the template itself. The placeholders are filled in when you create a new file from it.
 
 ## Plugins and licenses
 
-This vault contains unmodified copies of these plugins, so the setup works right away. You can update them as usual under *Settings → Community plugins*.
+The vault relies on three plugins to make this work, and contains unmodified copies of them, so that it just works automagically.
+
+Now and then they probably need updating, and you do that under *Settings → Community plugins*.
 
 | Plugin | Version | License | Source code |
 |---|---|---|---|
