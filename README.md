@@ -1,5 +1,7 @@
 # weekly-notes
 
+https://github.com/user-attachments/assets/5c895c35-dac9-4fa9-81e1-a468075089a8
+
 **English** · [Norsk](#norsk)
 
 A ready-made Obsidian vault for weekly and daily notes. The weekly note shows every day of the week, and you can click a day to create its daily note.
