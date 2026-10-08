@@ -6,7 +6,9 @@ A simple setup for daily and weekly notes:
 - **The daily note** links to its week, to yesterday and to tomorrow.
 - Click a day in the weekly note that doesn't exist yet, and the daily note is created with the right template in the right folder.
 
-The setup uses two plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes) and [Templater](https://github.com/SilentVoid13/Templater). Both are already included in this vault.
+- **The homepage** opens this week's note every time you start Obsidian, so you land straight in the current week.
+
+The setup uses three plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes), [Templater](https://github.com/SilentVoid13/Templater) and [Homepage](https://github.com/mirnovov/obsidian-homepage). All three are already included in this vault.
 
 ## Getting started
 
@@ -59,7 +61,7 @@ journal/
 ## Using the setup in an existing vault
 
 1. Copy the `templates/` folder (or just `weekly.md` and `daily.md`) into your vault.
-2. Install **Periodic Notes** and **Templater** under *Settings → Community plugins → Browse*.
+2. Install **Periodic Notes**, **Templater** and **Homepage** under *Settings → Community plugins → Browse*.
 3. Fill in the settings below. Don't copy the `.obsidian` folder, as that would overwrite your existing settings.
 4. Read [Language and week start](#language-and-week-start).
 
@@ -88,6 +90,21 @@ If you already have a template folder in Templater, you can put `weekly.md` and 
 | File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `templates/daily.md` |
 
 The rule means only files named exactly as a date, such as `2026-10-08.md`, get the daily template. Other new notes are not affected.
+
+**Homepage**
+
+| Setting | Value |
+|---|---|
+| Homepage → Type | *Weekly Note* (uses the weekly note from Periodic Notes) |
+| Open on startup | on |
+| Open when empty | on |
+| Use when opening normally | off |
+| Separate mobile homepage | off |
+| Opening method | Replace all open notes |
+| Manual opening method | Keep open notes |
+| Pin | on |
+| Hide release notes | on |
+| Auto-create | off |
 
 **Obsidian**
 
@@ -146,3 +163,4 @@ This vault contains unmodified copies of these plugins, so the setup works right
 |---|---|---|---|
 | Periodic Notes | 0.0.17 | MIT | [github.com/liamcain/obsidian-periodic-notes](https://github.com/liamcain/obsidian-periodic-notes) |
 | Templater | 2.25.0 | AGPL-3.0 | [github.com/SilentVoid13/Templater](https://github.com/SilentVoid13/Templater) |
+| Homepage | 4.5.0 | MIT | [github.com/mirnovov/obsidian-homepage](https://github.com/mirnovov/obsidian-homepage) |

@@ -6,7 +6,9 @@ Et enkelt oppsett for dagnotater og ukenotater:
 - **Dagnotatet** lenker til uka, til i går og til i morgen.
 - Klikker du på en dag som ikke finnes ennå i ukenotatet, lages dagnotatet med riktig mal og havner i riktig mappe.
 
-Oppsettet bruker to plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes) og [Templater](https://github.com/SilentVoid13/Templater). Begge ligger allerede i dette vaultet.
+- **Startsiden** åpner ukenotatet for denne uka hver gang du starter Obsidian, så du havner rett i uka som er nå.
+
+Oppsettet bruker tre plugins, [Periodic Notes](https://github.com/liamcain/obsidian-periodic-notes), [Templater](https://github.com/SilentVoid13/Templater) og [Homepage](https://github.com/mirnovov/obsidian-homepage). Alle tre ligger allerede i dette vaultet.
 
 ## Kom i gang
 
@@ -59,7 +61,7 @@ logg/
 ## Bruke oppsettet i et vault du har fra før
 
 1. Kopier mappen `templates/` (eller filene `uke.md` og `dag.md`) inn i vaultet ditt.
-2. Installer **Periodic Notes** og **Templater** under *Settings → Community plugins → Browse*.
+2. Installer **Periodic Notes**, **Templater** og **Homepage** under *Settings → Community plugins → Browse*.
 3. Fyll inn innstillingene under. Ikke kopier `.obsidian`-mappen, for da overskriver du innstillingene du har fra før.
 4. Les [Språk og ukestart](#språk-og-ukestart).
 
@@ -88,6 +90,21 @@ Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den
 | File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `templates/dag.md` |
 
 Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-08.md`, får dagmalen. Andre nye notater påvirkes ikke.
+
+**Homepage**
+
+| Innstilling | Verdi |
+|---|---|
+| Homepage → Type | *Weekly Note* (bruker ukenotatet fra Periodic Notes) |
+| Open on startup | på |
+| Open when empty | på |
+| Use when opening normally | av |
+| Separate mobile homepage | av |
+| Opening method | Replace all open notes |
+| Manual opening method | Keep open notes |
+| Pin | på |
+| Hide release notes | på |
+| Auto-create | av |
 
 **Obsidian**
 
@@ -146,3 +163,4 @@ Vaultet inneholder uendrede kopier av disse pluginene, slik at oppsettet virker 
 |---|---|---|---|
 | Periodic Notes | 0.0.17 | MIT | [github.com/liamcain/obsidian-periodic-notes](https://github.com/liamcain/obsidian-periodic-notes) |
 | Templater | 2.25.0 | AGPL-3.0 | [github.com/SilentVoid13/Templater](https://github.com/SilentVoid13/Templater) |
+| Homepage | 4.5.0 | MIT | [github.com/mirnovov/obsidian-homepage](https://github.com/mirnovov/obsidian-homepage) |
