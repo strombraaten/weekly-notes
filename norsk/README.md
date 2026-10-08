@@ -37,7 +37,7 @@ Start Obsidian på nytt etter at du har byttet språk.
 ## Hvordan det henger sammen
 
 ```
-Templates/
+templates/
   uke.md           ← ukemal (Periodic Notes fyller den ut)
   dag.md           ← dagmal (Templater fyller den ut)
 logg/
@@ -58,12 +58,12 @@ logg/
 
 ## Bruke oppsettet i et vault du har fra før
 
-1. Kopier mappen `Templates/` (eller filene `uke.md` og `dag.md`) inn i vaultet ditt.
+1. Kopier mappen `templates/` (eller filene `uke.md` og `dag.md`) inn i vaultet ditt.
 2. Installer **Periodic Notes** og **Templater** under *Settings → Community plugins → Browse*.
 3. Fyll inn innstillingene under. Ikke kopier `.obsidian`-mappen, for da overskriver du innstillingene du har fra før.
 4. Les [Språk og ukestart](#språk-og-ukestart).
 
-Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den og bruke de stiene i stedet. Husk også å endre `"Templates"` i base-blokken nederst i `uke.md`, slik at malene ikke dukker opp i tabellen.
+Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den og bruke de stiene i stedet. Husk også å endre `"templates"` i base-blokken nederst i `uke.md`, slik at malene ikke dukker opp i tabellen.
 
 ### Innstillinger
 
@@ -76,16 +76,16 @@ Har du allerede en malmappe i Templater, kan du legge `uke.md` og `dag.md` i den
 | Daily Notes → Template | *tom*. Templater fyller inn dagnotatet |
 | Weekly Notes → Format | `GGGG-[uke-]WW` |
 | Weekly Notes → Folder | `logg/uker` (eller din egen mappe) |
-| Weekly Notes → Template | `Templates/uke` |
+| Weekly Notes → Template | `templates/uke` |
 
 **Templater**
 
 | Innstilling | Verdi |
 |---|---|
-| Template folder location | `Templates` |
+| Template folder location | `templates` |
 | Trigger Templater on new file creation | på |
 | Mode | *File regex templates* |
-| File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `Templates/dag.md` |
+| File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `templates/dag.md` |
 
 Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-08.md`, får dagmalen. Andre nye notater påvirkes ikke.
 
@@ -96,7 +96,7 @@ Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-0
 ## Hvis noe ikke virker
 
 - **«Open weekly note» åpner forrige uke, eller søndagen er feil:** uka starter på søndag. Se [Språk og ukestart](#språk-og-ukestart).
-- **Et dagnotat blir lagd, men er tomt:** sjekk at *Trigger Templater on new file creation* er på, og at regex-regelen peker på `Templates/dag.md`. Er filen allerede laget tom, sletter du den og lager den på nytt.
+- **Et dagnotat blir lagd, men er tomt:** sjekk at *Trigger Templater on new file creation* er på, og at regex-regelen peker på `templates/dag.md`. Er filen allerede laget tom, sletter du den og lager den på nytt.
 - **«… is not created yet. Click to create» i ukenotatet:** det er normalt for dager som ikke har et notat ennå. Klikk for å lage det.
 - **Rare verdier som `{{monday:YYYY-MM-DD}}` eller `<% … %>`:** du ser på selve malen. Plassholderne fylles ut først når et notat lages fra malen.
 

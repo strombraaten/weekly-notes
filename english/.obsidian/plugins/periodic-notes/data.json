@@ -12,7 +12,7 @@
     "enabled": true,
     "format": "GGGG-[week-]WW",
     "folder": "journal/weeks",
-    "template": "Templates/weekly"
+    "template": "templates/weekly"
   },
   "monthly": {
     "enabled": false,

@@ -59,7 +59,7 @@ filters:
   and:
     - file.mtime >= this.week_start
     - file.mtime < this.week_end_limit
-    - file.folder != "Templates"
+    - file.folder != "templates"
     - file.path != this.file.path
 views:
   - type: table

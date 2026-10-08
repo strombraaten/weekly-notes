@@ -1,7 +1,7 @@
 {
   "data_version": 2,
   "command_timeout": 5,
-  "templates_folder": "Templates",
+  "templates_folder": "templates",
   "templates_pairs": [],
   "trigger_on_file_creation_mode": "regex",
   "auto_jump_to_cursor": false,
@@ -12,7 +12,7 @@
   "file_templates": [
     {
       "regex": "(^|/)\\d{4}-\\d{2}-\\d{2}\\.md$",
-      "template": "Templates/dag.md"
+      "template": "templates/dag.md"
     }
   ],
   "syntax_highlighting": true,

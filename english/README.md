@@ -37,7 +37,7 @@ Restart Obsidian after changing the language.
 ## How it fits together
 
 ```
-Templates/
+templates/
   weekly.md         ← weekly template (filled in by Periodic Notes)
   daily.md          ← daily template (filled in by Templater)
 journal/
@@ -58,12 +58,12 @@ journal/
 
 ## Using the setup in an existing vault
 
-1. Copy the `Templates/` folder (or just `weekly.md` and `daily.md`) into your vault.
+1. Copy the `templates/` folder (or just `weekly.md` and `daily.md`) into your vault.
 2. Install **Periodic Notes** and **Templater** under *Settings → Community plugins → Browse*.
 3. Fill in the settings below. Don't copy the `.obsidian` folder, as that would overwrite your existing settings.
 4. Read [Language and week start](#language-and-week-start).
 
-If you already have a template folder in Templater, you can put `weekly.md` and `daily.md` there and use those paths instead. Remember to also change `"Templates"` in the base block at the bottom of `weekly.md`, so the templates don't show up in the table.
+If you already have a template folder in Templater, you can put `weekly.md` and `daily.md` there and use those paths instead. Remember to also change `"templates"` in the base block at the bottom of `weekly.md`, so the templates don't show up in the table.
 
 ### Settings
 
@@ -76,16 +76,16 @@ If you already have a template folder in Templater, you can put `weekly.md` and 
 | Daily Notes → Template | *empty*. Templater fills in the daily note |
 | Weekly Notes → Format | `GGGG-[week-]WW` |
 | Weekly Notes → Folder | `journal/weeks` (or your own folder) |
-| Weekly Notes → Template | `Templates/weekly` |
+| Weekly Notes → Template | `templates/weekly` |
 
 **Templater**
 
 | Setting | Value |
 |---|---|
-| Template folder location | `Templates` |
+| Template folder location | `templates` |
 | Trigger Templater on new file creation | on |
 | Mode | *File regex templates* |
-| File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `Templates/daily.md` |
+| File regex template | `(^\|/)\d{4}-\d{2}-\d{2}\.md$` → `templates/daily.md` |
 
 The rule means only files named exactly as a date, such as `2026-10-08.md`, get the daily template. Other new notes are not affected.
 
@@ -96,7 +96,7 @@ The rule means only files named exactly as a date, such as `2026-10-08.md`, get 
 ## Troubleshooting
 
 - **"Open weekly note" opens last week, or Sunday is wrong:** your week starts on Sunday. See [Language and week start](#language-and-week-start).
-- **A daily note is created but empty:** check that *Trigger Templater on new file creation* is on and that the regex rule points to `Templates/daily.md`. If the file was already created empty, delete it and create it again.
+- **A daily note is created but empty:** check that *Trigger Templater on new file creation* is on and that the regex rule points to `templates/daily.md`. If the file was already created empty, delete it and create it again.
 - **"… is not created yet. Click to create" in the weekly note:** that's normal for days that don't have a note yet. Click to create it.
 - **Odd values like `{{monday:YYYY-MM-DD}}` or `<% … %>`:** you're looking at the template itself. The placeholders are only filled in when a note is created from it.
 

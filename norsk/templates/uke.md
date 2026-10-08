@@ -59,7 +59,7 @@ filters:
   and:
     - file.mtime >= this.uke_start
     - file.mtime < this.uke_slutt_grense
-    - file.folder != "Templates"
+    - file.folder != "templates"
     - file.path != this.file.path
 views:
   - type: table
