@@ -19,3 +19,6 @@ norsk/logg/uker/*
 
 # Byggede ZIP-filer / built zip files
 dist/
+
+# Demo-vault til skjermopptak / demo vault for screen recordings
+demo/
