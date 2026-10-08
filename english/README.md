@@ -93,7 +93,8 @@ The rule means only files named exactly as a date, such as `2026-10-08.md`, get 
 
 - Turn off the core plugin **Daily notes** (*Settings → Core plugins*), so only Periodic Notes manages daily notes.
 
-### Slightly more advanced: Already using folder templates in Templater?
+<details>
+<summary><strong>Slightly more advanced: Already using folder templates in Templater?</strong></summary>
 
 Templater can only use one mode at a time: either *Folder templates* or *File regex templates*. If you already use folder templates, keep them. Add the daily template as folder templates instead of the regex rule above.
 
@@ -127,6 +128,8 @@ if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
 ```
 
 Subfolders without their own folder template inherit the template from the folder above. If `journal/` has subfolders where you create other notes, give them their own folder template.
+
+</details>
 
 ## Troubleshooting
 

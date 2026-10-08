@@ -93,7 +93,8 @@ Regelen betyr at bare filer som heter nøyaktig en dato, for eksempel `2026-10-0
 
 - Slå av kjerne-pluginen **Daily notes** (*Settings → Core plugins*), slik at det bare er Periodic Notes som styrer dagnotatene.
 
-### Litt mer avansert: Bruker du allerede mappemaler i Templater?
+<details>
+<summary><strong>Litt mer avansert: Bruker du allerede mappemaler i Templater?</strong></summary>
 
 Templater kan bare bruke én modus om gangen, enten *Folder templates* eller *File regex templates*. Bruker du mappemaler fra før, beholder du dem. Da legger du til dagmalen som mappemaler i stedet for regex-regelen over.
 
@@ -127,6 +128,8 @@ if (/^\d{4}-\d{2}-\d{2}$/.test(tp.file.title)) {
 ```
 
 Undermapper uten egen mappemal arver malen fra mappen over. Har `logg/` undermapper der du lager andre notater, bør de få sin egen mappemal.
+
+</details>
 
 ## Hvis noe ikke virker
 
